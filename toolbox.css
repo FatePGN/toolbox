@@ -1,0 +1,24 @@
+ body {
+                overflow: hidden;
+            }
+            .scrollbar {
+                width: 100%;
+                height: 600px;
+                overflow: auto;
+                position: relative;
+            }
+            .innerDiv {
+                height: 900px;
+            }
+            .floatingBtn {
+                background: #000;
+                color: #fff;
+                transform: rotate(-90deg);
+                width: 40px;
+                right: 30px;
+                top: 80px;
+                position: fixed;
+            }
+            .btnContainer {
+                /*position: fixed;*/
+            }
