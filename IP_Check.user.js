@@ -5,8 +5,8 @@
 // @description  Add button for IP2Location
 // @author       Qawsar
 // @match        https://admin.callcentric.com/client_view.php?*
-// @updateURL    https://github.com/FatePGN/toolbox/raw/master/IP%20Check.user.js
-// @downloadURL  https://github.com/FatePGN/toolbox/raw/master/IP%20Check.user.js
+// @updateURL    https://github.com/FatePGN/toolbox/raw/master/IP_Check.user.js
+// @downloadURL  https://github.com/FatePGN/toolbox/raw/master/IP_Check.user.js
 // @grant
 // @require http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
