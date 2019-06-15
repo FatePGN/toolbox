@@ -23,6 +23,7 @@
         var ip5 = -1;
         var ip6 = -1;
         var ipcheck = new RegExp("^([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$");
+	var test = "test";
 
         for (var i = 0; i < tds.length; i++) {
             if (tds[i].textContent == "Subscription IP"){
