@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         IP Check
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  Add button for IP2Location
 // @author       Qawsar
 // @match        https://admin.callcentric.com/client_view.php?*
