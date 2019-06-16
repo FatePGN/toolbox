@@ -89,7 +89,7 @@
     style.innerHTML = `
 	.scrollbar {
 		width: 100%;
-		height: 600px;
+		height: 0px;
 		overflow: auto;
 		position: relative;
 	}
@@ -117,9 +117,9 @@
 
     var tools = document.createElement('tools');
     tools.innerHTML = `
-        <div class="scrollbar">
-            <div class="innerDiv">
-                <div class="btnContainer">
+        <div class="scrollbar" style="visibility: hidden">
+            <div class="innerDiv" style="visibility: hidden">
+                <div class="btnContainer" style="visibility: visible">
                     <div class="floatingBtn">
                         <center>
                         <br><strong>Quick Actions</strong><br><br>
@@ -162,6 +162,10 @@
     document.getElementsByName('fraud_flag')[0].setAttribute("style", "background-color: #FDBE1E;");
     document.getElementsByName('tmp_fraud_block')[0].selectedIndex = 1;
     document.getElementsByName('tmp_fraud_block')[0].setAttribute("style", "background-color: #FDBE1E;");
+    document.getElementsByName('cc_status')[0].selectedIndex = 0;
+    document.getElementsByName('cc_status')[0].setAttribute("style", "background-color: white;");
+    document.getElementsByName('security_block')[0].selectedIndex = 0;
+    document.getElementsByName('security_block')[0].setAttribute("style", "background-color: white;");
 }
 
     function sBlock (zEvent) {
@@ -175,6 +179,8 @@
     document.getElementsByName('allow_add_cc')[0].setAttribute("style", "background-color: #FDBE1E;");
     document.getElementsByName('block_paypal')[0].selectedIndex = 1;
     document.getElementsByName('block_paypal')[0].setAttribute("style", "background-color: #FDBE1E;");
+    document.getElementsByName('tmp_fraud_block')[0].selectedIndex = 0;
+    document.getElementsByName('tmp_fraud_block')[0].setAttribute("style", "background-color: white;");
 }
 
 })();
