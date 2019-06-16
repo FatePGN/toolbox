@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         IP Check
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.5
 // @description  Add button for IP2Location
 // @author       Qawsar
-// @match        https://admin.callcentric.com/client_view.php?*
+// @match        https://admin.callcentric.com/client_view.php*
 // @updateURL    https://github.com/FatePGN/toolbox/raw/master/IP_Check.user.js
 // @downloadURL  https://github.com/FatePGN/toolbox/raw/master/IP_Check.user.js
 // @grant
@@ -23,7 +23,6 @@
         var ip5 = -1;
         var ip6 = -1;
         var ipcheck = new RegExp("^([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$");
-	var test = "test";
 
         for (var i = 0; i < tds.length; i++) {
             if (tds[i].textContent == "Subscription IP"){
@@ -87,9 +86,7 @@
 
     var style = document.createElement('style');
     style.type = 'text/css';
-    style.innerHTML = `body {
-
-	}
+    style.innerHTML = `
 	.scrollbar {
 		width: 100%;
 		height: 600px;
@@ -100,27 +97,84 @@
 		height: 900px;
 	}
 	.floatingBtn {
-		background: #000;
+		background: #050684;
 		color: #fff;
-		transform: rotate(-90deg);
-		width: 40px;
-		right: 30px;
+		width: 150px;
+		right: 0px;
 		top: 80px;
 		position: fixed;
 	}
-	.btnContainer {
-		/*position: fixed;*/
-	}';`
+    .button {
+        background-color: #D6F8D5;
+        border: none;
+        border: 2px solid black;
+        padding: 4px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }';`;
     document.getElementsByTagName('head')[0].appendChild(style);
+
     var tools = document.createElement('tools');
-    tools.innerHTML = `<div class="scrollbar">
+    tools.innerHTML = `
+        <div class="scrollbar">
             <div class="innerDiv">
                 <div class="btnContainer">
                     <div class="floatingBtn">
-                        Tools WIP
+                        <center>
+                        <br><strong>Quick Actions</strong><br><br>
+                        <button id="pblock" class="button">Block Payment</button><br><br>
+                        <button id="fblock" class="button">Fraud Block</button><br><br>
+                        <button id="sblock" class="button">Secuirity Block</button><br><br>
+                        </center>
                     </div>
                 </div>
             </div>
-        </div>`
+        </div>
+        <script>
+        $(document).ready(function(){
+            $(".button").click(function () {
+                 $('.allow_add_cc').val('n').trigger('change');
+            });
+        });
+        </script>`;
     document.getElementsByTagName('body')[0].appendChild(tools);
+
+    document.getElementById ("pblock").addEventListener (
+    "click", pBlock, false
+    );
+    document.getElementById ("fblock").addEventListener (
+    "click", fBlock, false
+    );
+    document.getElementById ("sblock").addEventListener (
+    "click", sBlock, false
+    );
+
+    function pBlock (zEvent) {
+    document.getElementsByName('allow_add_cc')[0].selectedIndex = 1;
+    document.getElementsByName('allow_add_cc')[0].setAttribute("style", "background-color: #FDBE1E;");
+    document.getElementsByName('block_paypal')[0].selectedIndex = 1;
+    document.getElementsByName('block_paypal')[0].setAttribute("style", "background-color: #FDBE1E;");
+}
+
+    function fBlock (zEvent) {
+    document.getElementsByName('fraud_flag')[0].selectedIndex = 1;
+    document.getElementsByName('fraud_flag')[0].setAttribute("style", "background-color: #FDBE1E;");
+    document.getElementsByName('tmp_fraud_block')[0].selectedIndex = 1;
+    document.getElementsByName('tmp_fraud_block')[0].setAttribute("style", "background-color: #FDBE1E;");
+}
+
+    function sBlock (zEvent) {
+    document.getElementsByName('cc_status')[0].selectedIndex = 1;
+    document.getElementsByName('cc_status')[0].setAttribute("style", "background-color: #FDBE1E;");
+    document.getElementsByName('security_block')[0].selectedIndex = 1;
+    document.getElementsByName('security_block')[0].setAttribute("style", "background-color: #FDBE1E;");
+    document.getElementsByName('fraud_flag')[0].selectedIndex = 1;
+    document.getElementsByName('fraud_flag')[0].setAttribute("style", "background-color: #FDBE1E;");
+    document.getElementsByName('allow_add_cc')[0].selectedIndex = 1;
+    document.getElementsByName('allow_add_cc')[0].setAttribute("style", "background-color: #FDBE1E;");
+    document.getElementsByName('block_paypal')[0].selectedIndex = 1;
+    document.getElementsByName('block_paypal')[0].setAttribute("style", "background-color: #FDBE1E;");
+}
+
 })();
