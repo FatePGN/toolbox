@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         IP Check
+// @name         Quick Actions
 // @namespace    http://tampermonkey.net/
 // @version      0.5
-// @description  Add button for IP2Location
+// @description  Add's various quick actions to the Admin portal
 // @author       Qawsar
 // @match        https://admin.callcentric.com/client_view.php*
 // @updateURL    https://github.com/FatePGN/toolbox/raw/master/IP_Check.user.js
